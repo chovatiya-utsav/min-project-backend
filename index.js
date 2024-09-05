@@ -19,7 +19,6 @@ const uri = "mongodb+srv://utsavchovatiya3:=C6j6k27Ug58LZqYm@user-db.shxkh.mongo
 const client = new MongoClient(uri);
 
 client.connect();
-
 const database = client.db("user-details");
 module.exports = database;
 
@@ -62,6 +61,9 @@ app.use('/api/userAppointments', userAppointments);
 
 const displayUser = require('./routs/displayUser');
 app.use('/api/displayUser', displayUser);
+
+const deleteuser = require('./routs/deleteUserAppointment');
+app.use('/api/deleteUserAppointment', deleteuser);
 
 
 

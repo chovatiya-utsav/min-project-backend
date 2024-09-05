@@ -8,7 +8,7 @@ const database = require('../index.js');
 
 const collection = database.collection("user");
 
-console.log("datbaseName", collection)
+// console.log("datbaseName", collection)
 
 
 router.get('/resive', async (req, res) => {
@@ -20,7 +20,7 @@ router.get('/resive', async (req, res) => {
         // Retrieve users
         const query = {}; // Empty query object to find all users
         const usersData = await collection.find(query).toArray();
-        console.log(usersData);
+        // console.log(usersData);
 
         // Check if user already exists
         // console.log("data", collection)

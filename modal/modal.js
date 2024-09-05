@@ -7,8 +7,15 @@ const formDataSchema = new mongoose.Schema({
     lastName: String,
     CompanyName: String,
     TeamSize: String,
-    phoneNo: String,
-    email: String,
+    phoneNo: {
+        type: String,
+        required: true
+    },
+    email:
+    {
+        type: String,
+        required: true
+    }
     // other fields
 });
 
