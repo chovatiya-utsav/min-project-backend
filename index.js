@@ -10,7 +10,9 @@ const port = 5000;
 
 // Middleware
 app.use(cors());
+app.use(cors());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // MongoDB connection
 const uri = "mongodb+srv://utsavchovatiya3:=C6j6k27Ug58LZqYm@user-db.shxkh.mongodb.net/?retryWrites=true&w=majority&appName=user-db"
@@ -62,8 +64,11 @@ app.use('/api/userAppointments', userAppointments);
 const displayUser = require('./routs/displayUser');
 app.use('/api/displayUser', displayUser);
 
-const deleteuser = require('./routs/deleteUserAppointment');
-app.use('/api/deleteUserAppointment', deleteuser);
+
+//indestry add api
+const addindustries = require('./routs/addindustries');
+app.use('/api', addindustries);
+
 
 
 
