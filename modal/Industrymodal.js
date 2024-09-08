@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const indestry = mongoose.Schema({
   title: {
@@ -19,6 +19,6 @@ const indestry = mongoose.Schema({
   }
 });
 
+const DataModel = mongoose.model("indestryData", indestry);
 
-const Industry = mongoose.model('addimage', indestry);
-module.exports = Industry;
+module.exports = DataModel;
