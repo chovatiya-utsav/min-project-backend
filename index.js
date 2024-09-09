@@ -174,7 +174,7 @@ app.post('/api/delete', async (req, res) => {
 
     console.log("id", objectId)
     // const data = await collection.findOneAndDelete({ _id: objectId });
-    const data = await collection.findByIdAndDelete({ _id: objectId });
+    const data = await collection.findOneAndDelete({ _id: objectId });
     console.log("data", data)
 
     if (data) {
