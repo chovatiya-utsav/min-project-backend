@@ -71,12 +71,13 @@ app.use('/api/userAppointments', userAppointments);
 const displayUser = require('./routs/displayUser');
 app.use('/api/displayUser', displayUser);
 
+//delete user appoinyment api
+
+const deleteuser = require('./routs/deleteUserAppointment');
+app.use('/api/deleteUserAppointment', deleteuser);
+
 
 //indestry add api
-// const addindustries = require('./app');
-// app.use('/api', addindustries);
-
-
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
