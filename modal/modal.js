@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-// Define a schema and model for the data
+// Appointment schema 
 
 const formDataSchema = new mongoose.Schema({
     firstName: String,
@@ -9,14 +9,15 @@ const formDataSchema = new mongoose.Schema({
     TeamSize: String,
     phoneNo: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     email:
     {
         type: String,
-        required: true
+        required: true,
+        unique: true
     }
-    // other fields
 });
 
 module.exports = mongoose.model("user", formDataSchema);

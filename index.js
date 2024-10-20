@@ -188,6 +188,51 @@ app.post('/api/delete', async (req, res) => {
   }
 });
 
+app.put('/api/update/:id', upload.single('image'), async (req, res) => {
+  try {
+    const { title, description } = req.body;
+    const id = req.params.id;
+
+    // Find the existing document by ID
+    const existingData = await collection.findOne({ _id: new ObjectId(id) });
+
+    if (!existingData) {
+      return res.status(404).json({ msg: "Industry not found" });
+    }
+    const date = new Date();
+    console.log("date", date)
+
+    // If a new image is uploaded, handle the image update
+    let updatedData = {
+      title,
+      description,
+      date: date
+    };
+    console.log(updatedData);
+
+    if (req.file) {
+      // Delete the old image file
+      if (existingData.indestryImage) {
+        fs.unlinkSync(`./public/image/${existingData.indestryImage}`);
+      }
+
+      // Add the new image to updated data
+      updatedData.indestryImage = req.file.filename;
+    }
+
+    // Update the document
+    const updatedDoc = await collection.updateOne(
+      { _id: new ObjectId(id) },
+      { $set: updatedData }
+    );
+
+    res.status(200).json({ msg: "Industry updated", updatedDoc });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to update industry' });
+  }
+});
 
 
 const PORT = process.env.PORT || 5000;
