@@ -22,7 +22,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 // MongoDB connection
-const uri = "mongodb+srv://utsavchovatiya3:=C6j6k27Ug58LZqYm@user-db.shxkh.mongodb.net/?retryWrites=true&w=majority&appName=user-db"
+// const uri = "mongodb+srv://uchovatiya1:Utsav@123@industries.gto73.mongodb.net/?retryWrites=true&w=majority&appName=industries"
+const uri = "mongodb+srv://uchovatiya1:Utsav@industries.gto73.mongodb.net/?retryWrites=true&w=majority&appName=industries"
+
+// old data base
+// "mongodb+srv://utsavchovatiya3:=C6j6k27Ug58LZqYm@user-db.shxkh.mongodb.net/?retryWrites=true&w=majority&appName=user-db"
 
 
 const client = new MongoClient(uri);

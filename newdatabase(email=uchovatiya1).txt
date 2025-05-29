@@ -1,0 +1,3 @@
+database atlase
+
+password = vIHlp1vnZP9PcKIV
